@@ -9,6 +9,7 @@
   "author": "Mateusz Pstrucha",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^2.4.2"
+    "chalk": "^2.4.2",
+    "custom-date": "github:Maathias/custom-date"
   }
 }

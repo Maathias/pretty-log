@@ -1,9 +1,10 @@
 const chalk = require('chalk')
+const CustomDate = require('custom-date')
 
 module.exports = function log(data, lvl) { // log user information //user, session, action, data, ip
 
 	// var source = getStackTrace().toString().match(`${__dirname}/modules\\/([A-Z]\\S+)\\.js`)
-	source = source != null ? source[1] : 'main'
+	var source = source != null ? source[1] : 'main'
 
 	var lvl = lvl || 1,
 		verbose = (function () {
@@ -16,7 +17,7 @@ module.exports = function log(data, lvl) { // log user information //user, sessi
 
 	if (lvl > verbose) return
 
-	var date = chalk.gray(dateFormat('log')) + ` ${"#".repeat(lvl)}`,
+	var date = chalk.gray(new CustomDate().getCustomLong()) + ` ${"#".repeat(lvl)}`,
 		actions = {
 			'connect': () => console.log(`${date} CONNECTED        ${chalk.gray(`${data.handle.ip} ${data.handle.shortid}`)}`),
 			'disconnect': () => console.log(`${date} DISCONNECTED     ${chalk.gray(`${data.handle.ip} ${data.handle.shortid} ${data.handle.login}`)}`),
