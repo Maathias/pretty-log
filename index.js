@@ -1,4 +1,4 @@
-import 'chalk'
+const chalk = require('chalk')
 
 module.exports = function log(data, lvl) { // log user information //user, session, action, data, ip
 
