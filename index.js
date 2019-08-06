@@ -2,7 +2,7 @@ const chalk = require('chalk')
 
 module.exports = function log(data, lvl) { // log user information //user, session, action, data, ip
 
-	var source = getStackTrace().toString().match(`${__dirname}/modules\\/([A-Z]\\S+)\\.js`)
+	// var source = getStackTrace().toString().match(`${__dirname}/modules\\/([A-Z]\\S+)\\.js`)
 	source = source != null ? source[1] : 'main'
 
 	var lvl = lvl || 1,
