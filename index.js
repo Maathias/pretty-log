@@ -12,7 +12,8 @@ module.exports = {
 					template = template.replace(`\$${value}`, eval(this.values[value]))
 				}
 			}
-			console.log(`${chalk.gray(new CustomDate().getCustomLong()) + ` ${"#".repeat(lvl)}`} ${template}`)
+			console.log(out = `${chalk.gray(new CustomDate().getCustomLong()) + ` ${"#".repeat(lvl)}`} ${template}`)
+			return out.replace(/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g, '')
 		}
 	},
 	verbose: Infinity,
