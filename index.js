@@ -4,6 +4,7 @@ const CustomDate = require('custom-date')
 module.exports = {
         log: function(data, lvl = 1) {
                 if (lvl > this.verbose) return
+                if (typeof data != 'object') data = { data: data, action: 'info' }
 
                 if (this.templates[data.action]) {
                     // insert data into template
@@ -20,7 +21,7 @@ module.exports = {
 
 			// return escaped string
 			var clear = out.replace(/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g, '')
-			if(this.after) this.after(clear)
+			if (this.after) this.after(clear)
 			return clear
 		} else {
 			console.warn(`An attempt to log was made, but specified action is undefined`)
